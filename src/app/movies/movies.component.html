@@ -17,57 +17,13 @@
   <h3 class="orange-text">Search Results</h3>
   <div class="row">
     <div class="col s12 m4" *ngFor="let movie of searchRes; let i = index;">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" *ngIf="movie.poster_path">
-          <img class="activator" src="https://dummyimage.com/600x540/222222/ffffff&text=Movies+Finder" *ngIf="!movie.poster_path">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4 text-ellipsis">{{movie.title}}<i class="material-icons right">more_vert</i></span>
-          <p><a routerLink="/movie/{{movie.id}}">View details &raquo;</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Overview<i class="material-icons right">close</i></span>
-          <p>{{ movie.overview}}</p>
-          <p><strong>Release Date: </strong>{{movie.release_date}}</p>
-        </div>
-      </div>
+      <movie-card [movie]="movie"></movie-card>
     </div>
   </div>
 </div>
 <h3 class="orange-text">Popular Movies</h3>
 <div class="row">
   <div class="col s12 m4" *ngFor="let movie of popularList; let i = index;">
-    <div class="card">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" *ngIf="movie.poster_path">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4 text-ellipsis">{{movie.title}}<i class="material-icons right">more_vert</i></span>
-        <p><a routerLink="/movie/{{movie.id}}">View details &raquo;</a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Overview<i class="material-icons right">close</i></span>
-        <p>{{ movie.overview}}</p>
-        <p><strong>Release Date: </strong>{{movie.release_date}}</p>
-      </div>
-    </div>
+    <movie-card [movie]="movie"></movie-card>
   </div>
 </div>
-<!--<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Movies In Theaters</h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-2" *ngFor="let movie of theatersList; let i = index;">
-        <div *ngIf="i < 6">
-          <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" *ngIf="movie.poster_path" class="thumbnail">
-          <h4>{{movie.title}}</h4>
-          <p>{{movie.release_date}}</p>
-          <p><a routerLink="/movie/{{movie.id}}" class="btn btn-default">View details &raquo;</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->
