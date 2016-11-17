@@ -1,16 +1,16 @@
-<nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" routerLink="/">Movies Finder</a>
+<nav class="light-orange lighten-1" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" routerLink="/" class="brand-logo">Movies Finder</a>
+    <!--<ul class="right hide-on-med-and-down">
+      <li><a href="#">Movie Finder</a></li>
+    </ul>-->
+    <!--<ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Navbar Link</a></li>
+    </ul>-->
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </div>
 </nav>
-
 <div class="container">
-  <router-outlet></router-outlet>
+  <div class="section">
+    <router-outlet></router-outlet>
+  </div>
 </div>
