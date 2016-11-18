@@ -11,6 +11,7 @@ import {MoviesService} from '../movies.service';
 export class MovieComponent implements OnInit {
   movie: Object;
   reviews: Array<Object>;
+  similarMovies: Array<Object>;
   video: Object;
   constructor(
     private _moviesServices: MoviesService,
@@ -34,6 +35,11 @@ export class MovieComponent implements OnInit {
           this.video = res.results[0];        
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
         }
+      });
+      this._moviesServices.getSimilarMovies(id).subscribe(res => {
+        console.log(res.results);
+        
+        this.similarMovies = res.results.slice(0, 12);
       });
     })
   }
