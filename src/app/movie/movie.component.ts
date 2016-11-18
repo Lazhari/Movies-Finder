@@ -9,6 +9,7 @@ import {MoviesService} from '../movies.service';
 })
 export class MovieComponent implements OnInit {
   movie: Object;
+  reviews: Array<Object>;
   constructor(
     private _moviesServices: MoviesService,
     private router: ActivatedRoute ) {
@@ -19,8 +20,10 @@ export class MovieComponent implements OnInit {
     this.router.params.subscribe((params) => {
       const id = params['id'];
       this._moviesServices.getMovie(id).subscribe(movie => {
-        console.log(movie);
         this.movie = movie;
+      });
+      this._moviesServices.getMovieReviews(id).subscribe(res => {
+        this.reviews = res.results;
       });
     })
   }

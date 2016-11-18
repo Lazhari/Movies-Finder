@@ -1,44 +1,36 @@
-<div *ngIf="movie">
-  <div class="row">
-    <div class="col m5">
-      <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" thumbnail>
-    </div>
-    <div class="col m7">
-      <ul class="collection with-header">
-        <li class="collection-header">
-          <h4>{{movie.title}}</h4>
-        </li>
-        <li class="collection-item">
-          <div>Genres:
-            <span class="secondary-content">
-              <span *ngFor="let genre of movie.genres" class="new badge">
-              {{genre.name}} 
-            </span>
-            </span>
-          </div>
-        </li>
-        <li class="collection-item">
-          <div>Overview:
-            <span class="secondary-content">
-                {{movie.overview}}
-            </span>
-          </div>
-        </li>
-      </ul>
-      <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-default" target="_blank">Visit Movies Website</a>
-      <!--<h1>{{movie.title}}</h1>
-      <ul class="list-group">
-        <li class="list-group-item">
-          Genres:
-          <span *ngFor="let genre of movie.genres" class="new badge">
-              {{genre.name}} 
-            </span>
-        </li>
-        <li class="list-group-item">
-          Release Date: {{movie.release_date}}
-        </li>
-      </ul>
-      <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-default" target="_blank">Visit Movies Website</a>-->
+<div class="row" *ngIf="movie">
+  <div class="col-md-4">
+    <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" class="thumbnail">
+    <p>
+      <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
+    </p>
+  </div>
+  <div class="col-md-8">
+    <h2>{{movie.title}}
+      <small class="label label-warning">
+        {{movie.vote_average}}
+        <i class="glyphicon glyphicon-star"></i>
+      </small>
+    </h2>
+    <p>
+      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie.genres" class="label label-default m-r-md">
+        {{genre.name}}
+      </a>
+    </p>
+    <h3>Overview</h3>
+    <p>
+      {{movie.overview}}
+    </p>
+    <div class="row" *ngIf="reviews && reviews.length > 0">
+      <div class="col-md-12">
+        <h2>Reviews</h2>
+      </div>
+      <div class="col-md-6" *ngFor="let review of reviews">
+        <blockquote>
+          <p class="text-justify">{{review.content}}</p>
+          <footer><cite title="Source Title">{{review.author}}</cite></footer>
+        </blockquote>
+      </div>
     </div>
   </div>
 </div>
