@@ -1,15 +1,17 @@
-<div class="card">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" *ngIf="movie.poster_path">
-    <img class="activator" src="https://dummyimage.com/600x540/222222/ffffff&text=Movies+Finder" *ngIf="!movie.poster_path">
-  </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4 text-ellipsis">{{movie.title}}<i class="material-icons right">more_vert</i></span>
-    <p><a routerLink="/movie/{{movie.id}}">View details &raquo;</a></p>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4">Overview<i class="material-icons right">close</i></span>
-    <p>{{ movie.overview}}</p>
+<div class="thumbnail">
+  <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" *ngIf="movie.poster_path">
+  <img src="assets/img/abstract-image.jpg" *ngIf="!movie.poster_path">
+  <div class="caption">
+    <h4 class="text-ellipsis">
+      <a routerLink="/movie/{{movie.id}}" title="{{movie.title}}">{{movie.title}}</a>
+    </h4>
     <p><strong>Release Date: </strong>{{movie.release_date}}</p>
+    <p>
+      <a routerLink="/movie/{{movie.id}}">View details &raquo;</a>
+      <small class="label label-success pull-right">
+        {{movie.vote_average}}
+        <i class="glyphicon glyphicon-star"></i>
+      </small>
+    </p>
   </div>
 </div>

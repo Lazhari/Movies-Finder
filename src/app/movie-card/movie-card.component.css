@@ -1,7 +1,13 @@
 img {
-    height: 540px;
+    width: 100%;
 }
 .card .card-title {
     font-size: 15px;
     font-weight: 300;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
