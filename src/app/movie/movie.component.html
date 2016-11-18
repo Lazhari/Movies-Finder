@@ -28,7 +28,7 @@
       <div class="col-md-6" *ngFor="let review of reviews">
         <blockquote>
           <p class="text-justify">{{review.content}}</p>
-          <footer><cite title="Source Title">{{review.author}}</cite></footer>
+          <footer><cite title="{{review.author}}"><a href="{{review.url}}" target="_blank">{{review.author}}</a></cite></footer>
         </blockquote>
       </div>
     </div>
