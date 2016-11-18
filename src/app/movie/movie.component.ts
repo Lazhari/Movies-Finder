@@ -33,7 +33,6 @@ export class MovieComponent implements OnInit {
         if(res.results && res.results.length) {
           this.video = res.results[0];        
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);
-          console.log(this.video);
         }
       });
     })
