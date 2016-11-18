@@ -9,6 +9,7 @@ import {MoviesService} from '../movies.service';
 export class MoviesComponent implements OnInit {
   popularList: Array<Object>;
   theatersList: Array<Object>;
+  topRatedList: Array<Object>;
   searchRes: Array<Object>;
   searchStr: string;
   constructor(private _moviesService: MoviesService) {
@@ -17,6 +18,9 @@ export class MoviesComponent implements OnInit {
     });
     this._moviesService.getInTheaters().subscribe(res => {
       this.theatersList = res.results;
+    });
+    this._moviesService.getTopRatedMovies().subscribe(res => {
+      this.topRatedList = res.results;
     });
   }
 

@@ -33,6 +33,15 @@ export class MoviesService {
       })
   }
 
+  getTopRatedMovies() {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/top_rated?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+
   searchMovies(searchStr: string) {
     var search = new URLSearchParams();
     search.set('sort_by','popularity.desc');

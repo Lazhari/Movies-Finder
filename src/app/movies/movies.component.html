@@ -23,6 +23,14 @@
     </div>
   </div>
 </div>
+
+<h3 class="orange-text">Top Rated Movies</h3>
+<div class="row is-flex">
+  <div class="col-sm-3" *ngFor="let movie of topRatedList; let i = index;">
+    <movie-card [movie]="movie"></movie-card>
+  </div>
+</div>
+
 <h3 class="orange-text">Popular Movies</h3>
 <div class="row is-flex">
   <div class="col-sm-3" *ngFor="let movie of popularList; let i = index;">
