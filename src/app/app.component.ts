@@ -8,5 +8,11 @@ import {MoviesService} from './movies.service';
   providers: [MoviesService]
 })
 export class AppComponent {
-  title = 'app works!';
+  genres: Array<Object>;
+
+  constructor(private _moviesServices: MoviesService) {
+    this._moviesServices.getGenres().subscribe(res => {
+      this.genres = res.genres.slice(0, 20);
+    });
+  }
 }

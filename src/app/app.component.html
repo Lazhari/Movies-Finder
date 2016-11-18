@@ -1,16 +1,52 @@
-<nav class="light-orange lighten-1" role="navigation">
-  <div class="nav-wrapper container"><a id="logo-container" routerLink="/" class="brand-logo">Movies Finder</a>
-    <!--<ul class="right hide-on-med-and-down">
-      <li><a href="#">Movie Finder</a></li>
-    </ul>-->
-    <!--<ul id="nav-mobile" class="side-nav">
-      <li><a href="#">Navbar Link</a></li>
-    </ul>-->
-    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" routerLink="/">Movies Finder</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <!-- /.nav-collapse -->
   </div>
+  <!-- /.container -->
 </nav>
-<div class="container">
+<!-- /.navbar -->
+<!--<div class="container">
   <div class="section">
     <router-outlet></router-outlet>
   </div>
-</div>
+</div>-->
+
+<div class="container-fluid app-container">
+
+      <div class="row">
+
+        <div class="col-xs-4 col-sm-2" id="sidebar">
+          <div class="list-group">
+            <a routerLink="/genres/{{genre.id}}/{{genre.name}}" class="list-group-item active" *ngFor="let genre of genres">{{genre.name}}</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+
+        <div class="col-xs-12 col-sm-10">
+          <router-outlet></router-outlet>
+        </div><!--/.col-xs-12.col-sm-9-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+
+    </div><!--/.container-->

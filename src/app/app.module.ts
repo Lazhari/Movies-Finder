@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+import { GenresComponent } from './genres/genres.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
     MovieComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    GenresComponent
   ],
   imports: [
     BrowserModule,
