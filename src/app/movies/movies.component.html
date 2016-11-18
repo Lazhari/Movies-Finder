@@ -1,32 +1,3 @@
-<!--<div class="row">
-  <div class="col s12 m6">
-    <p>Search for a movie using the form below</p>
-    <form (submit)="searchMovies()">
-      <div class="row">
-        <div class="col m8">
-          <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr" name="searchStr" (enter)="searchMovies()">
-        </div>
-        <div class="col m4">
-          <button class="btn btn-primary" type="submit" style="margin-top: 5px;">Go!</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<div *ngIf="searchRes">
-  <h3 class="orange-text">Search Results</h3>
-  <div class="row">
-    <div class="col s12 m4" *ngFor="let movie of searchRes; let i = index;">
-      <movie-card [movie]="movie"></movie-card>
-    </div>
-  </div>
-</div>
-<h3 class="orange-text">Popular Movies</h3>
-<div class="row">
-  <div class="col s12 m4" *ngFor="let movie of popularList; let i = index;">
-    <movie-card [movie]="movie"></movie-card>
-  </div>
-</div>-->
 <p class="pull-right visible-xs">
   <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 </p>
@@ -35,16 +6,15 @@
   <form>
     <div class="form-group">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr" name="searchStr" (enter)="searchMovies()">
+        <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchMovies()">
         <span class="input-group-btn">
-                    <button class="btn btn-primary" type="button" (click)="searchMovies()">Go!</button>
-                  </span>
+          <button class="btn btn-primary" type="button" (click)="searchMovies()">Go!</button>
+        </span>
       </div>
       <!-- /input-group -->
     </div>
   </form>
 </div>
-
 <div *ngIf="searchRes">
   <h3 class="orange-text">Search Results</h3>
   <div class="row is-flex">
