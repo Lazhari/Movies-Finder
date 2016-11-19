@@ -20,7 +20,7 @@
   <h3 class="orange-text">Search Results</h3>
   <div class="row is-flex">
     <div class="col-sm-3" *ngFor="let movie of searchRes; let i = index;">
-      <movie-card [movie]="movie"></movie-card>
+      <movie-card [movie]="movie" type="movie">></movie-card>
     </div>
   </div>
 </div>
@@ -29,7 +29,7 @@
   <h3 class="orange-text">Up Coming Movies</h3>
   <div class="row is-flex">
     <div class="col-sm-3" *ngFor="let movie of movies; let i = index;">
-      <movie-card [movie]="movie"></movie-card>
+      <movie-card [movie]="movie" type="movie">></movie-card>
     </div>
   </div>
 </div>

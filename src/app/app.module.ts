@@ -11,6 +11,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { GenresComponent } from './genres/genres.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { PopularSeriesComponent } from './popular-series/popular-series.component';
+import { SerieComponent } from './serie/serie.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PopularSeriesComponent } from './popular-series/popular-series.componen
     MovieCardComponent,
     GenresComponent,
     UpcomingComponent,
-    PopularSeriesComponent
+    PopularSeriesComponent,
+    SerieComponent
   ],
   imports: [
     BrowserModule,

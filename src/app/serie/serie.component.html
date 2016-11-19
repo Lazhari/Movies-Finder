@@ -1,0 +1,72 @@
+<div class="row" *ngIf="serie">
+  <div class="col-md-4">
+    <img src="https://image.tmdb.org/t/p/w500/{{serie.poster_path}}" alt="" class="thumbnail">
+    <p>
+      <a *ngIf="serie.homepage" href="{{serie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
+    </p>
+  </div>
+  <div class="col-md-8">
+    <h2>{{serie.name}}
+      <small class="label label-warning">
+        {{serie.vote_average}}
+        <i class="glyphicon glyphicon-star"></i>
+      </small>
+    </h2>
+    <p>{{serie.status}}</p>
+    <p><strong>Last Air Date: </strong>{{serie.last_air_date}}</p>
+    <p><strong>Number Of Seasons: </strong>{{serie.number_of_seasons}}</p>
+    <p><strong>Number Of Episodes: </strong>{{serie.number_of_episodes}}</p>
+    <p>
+      <strong>Production Companies: </strong>
+      <span *ngFor="let comapny of serie.production_companies" class="label label-danger m-r-md">
+        {{comapny.name}}
+      </span>
+    </p>
+    <p>
+      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of serie.genres" class="label label-info m-r-md">
+        {{genre.name}}
+      </a>
+    </p>
+    <h3>Overview</h3>
+    <p>
+      {{serie.overview}}
+    </p>
+    <div class="row" *ngIf="video">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>{{video.name}}</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" [src]="video.url"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Similar Movies-->
+<div *ngIf="serie">
+  <div class="row is-flex" *ngIf="serie.seasons && serie.seasons.length > 0">
+  <div class="col-md-12">
+    <h2>Seasons</h2>
+  </div>
+  <div class="col-md-2" *ngFor="let season of serie.seasons">
+    <div class="thumbnail">
+        <img src="https://image.tmdb.org/t/p/w300/{{season.poster_path}}" *ngIf="season.poster_path">
+        <img src="assets/img/abstract-image.jpg" *ngIf="!season.poster_path">
+        <div class="caption">
+          <h4 class="text-ellipsis">
+            <a title="Season {{season.season_number + 1}}">Season {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>
+          </h4>
+          <p><strong>Air Date: </strong>{{season.air_date}}</p>
+          <p>
+            <a>View details &raquo;</a>
+            <small class="label label-success pull-right">
+              {{serie.vote_average}}
+              <i class="glyphicon glyphicon-star"></i>
+            </small>
+          </p>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+<!--Similar Movies-->

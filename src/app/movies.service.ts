@@ -123,4 +123,22 @@ export class MoviesService {
         return res.json();
       })
   }
+
+  getSerieDetails(id:string) {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/tv/'+ id +'?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+
+  getSerieVideos(id:string) {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/tv/'+ id +'/videos?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
 }

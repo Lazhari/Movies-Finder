@@ -2,7 +2,23 @@
   <h3 class="orange-text">Popular Series</h3>
   <div class="row is-flex">
     <div class="col-sm-3" *ngFor="let serie of series; let i = index;">
-      <movie-card [movie]="serie"></movie-card>
+      <div class="thumbnail">
+        <img src="https://image.tmdb.org/t/p/w300/{{serie.poster_path}}" *ngIf="serie.poster_path">
+        <img src="assets/img/abstract-image.jpg" *ngIf="!serie.poster_path">
+        <div class="caption">
+          <h4 class="text-ellipsis">
+            <a routerLink="/tv/{{serie.id}}" title="{{serie.title}}">{{serie.name}}</a>
+          </h4>
+          <p><strong>First Air Date: </strong>{{serie.first_air_date}}</p>
+          <p>
+            <a routerLink="/tv/{{serie.id}}">View details &raquo;</a>
+            <small class="label label-success pull-right">
+              {{serie.vote_average}}
+              <i class="glyphicon glyphicon-star"></i>
+            </small>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
