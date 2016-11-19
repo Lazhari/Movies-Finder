@@ -124,6 +124,15 @@ export class MoviesService {
       })
   }
 
+  getTopRatedSeries() {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/tv/top_rated?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+
   getSerieDetails(id:string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
