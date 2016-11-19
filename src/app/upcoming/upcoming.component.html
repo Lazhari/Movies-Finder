@@ -1,0 +1,35 @@
+<p class="pull-right visible-xs">
+  <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+</p>
+<div class="jumbotron">
+  <p>Search for a movie using the form below</p>
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchMovies()">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" (click)="searchMovies()">Go!</button>
+        </span>
+      </div>
+      <!-- /input-group -->
+    </div>
+  </form>
+</div>
+
+<div *ngIf="searchRes">
+  <h3 class="orange-text">Search Results</h3>
+  <div class="row is-flex">
+    <div class="col-sm-3" *ngFor="let movie of searchRes; let i = index;">
+      <movie-card [movie]="movie"></movie-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="movies">
+  <h3 class="orange-text">Up Coming Movies</h3>
+  <div class="row is-flex">
+    <div class="col-sm-3" *ngFor="let movie of movies; let i = index;">
+      <movie-card [movie]="movie"></movie-card>
+    </div>
+  </div>
+</div>

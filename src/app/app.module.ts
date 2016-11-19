@@ -9,6 +9,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { GenresComponent } from './genres/genres.component';
+import { UpcomingComponent } from './upcoming/upcoming.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GenresComponent } from './genres/genres.component';
     MoviesComponent,
     MovieComponent,
     MovieCardComponent,
-    GenresComponent
+    GenresComponent,
+    UpcomingComponent
   ],
   imports: [
     BrowserModule,
