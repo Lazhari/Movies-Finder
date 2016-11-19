@@ -115,4 +115,12 @@ export class MoviesService {
         return res.json();
       })
   }
+  getPopularSeries() {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/tv/popular?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
 }

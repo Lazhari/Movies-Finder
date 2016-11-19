@@ -1,0 +1,8 @@
+<div *ngIf="series">
+  <h3 class="orange-text">Popular Series</h3>
+  <div class="row is-flex">
+    <div class="col-sm-3" *ngFor="let serie of series; let i = index;">
+      <movie-card [movie]="serie"></movie-card>
+    </div>
+  </div>
+</div>
