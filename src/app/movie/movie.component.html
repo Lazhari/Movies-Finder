@@ -22,17 +22,33 @@
     <p>
       {{movie.overview}}
     </p>
-    <div class="row" *ngIf="video">
-      <div class="col-md-8 col-md-offset-2">
-        <h2>{{video.name}}</h2>
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" [src]="video.url"></iframe>
-        </div>
+    <!--Casts-->
+    <div class="row is-flex" *ngIf="cast && cast.length > 0">
+      <div class="col-md-12">
+        <h3 class="text-center">Cast</h3>
       </div>
+      <div class="col-md-2" *ngFor="let actor of cast">
+        <div class="thumbnail">
+          <img src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
+          <div class="caption">
+            <h6>{{actor.name}}</h6>
+          </div>
+        </div >
+      </div>
+    </div>
+    <!--Casts-->
+  </div>
+</div>
+<!--Trailer-->
+<div class="row" *ngIf="video">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>{{video.name}}</h2>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" [src]="video.url"></iframe>
     </div>
   </div>
 </div>
-
+<!--Trailer-->
 <!--Similar Movies-->
 <div class="row is-flex" *ngIf="similarMovies && similarMovies.length > 0">
   <div class="col-md-12">
@@ -43,7 +59,6 @@
   </div>
 </div>
 <!--Similar Movies-->
-
 <div class="row" *ngIf="reviews && reviews.length > 0">
   <div class="col-md-12">
     <h2>Reviews</h2>

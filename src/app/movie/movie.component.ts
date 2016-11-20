@@ -12,6 +12,7 @@ export class MovieComponent implements OnInit {
   movie: Object;
   reviews: Array<Object>;
   similarMovies: Array<Object>;
+  cast: Array<Object>;
   video: Object;
   constructor(
     private _moviesServices: MoviesService,
@@ -29,6 +30,10 @@ export class MovieComponent implements OnInit {
       });
       this._moviesServices.getMovieReviews(id).subscribe(res => {
         this.reviews = res.results;
+      });
+      this._moviesServices.getMovieCredits(id).subscribe(res => {
+        res.cast = res.cast.filter((item) => {return item.profile_path});
+        this.cast = res.cast.slice(0, 6);
       });
       this._moviesServices.getMovieVideos(id).subscribe(res => {
         if(res.results && res.results.length) {

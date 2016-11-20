@@ -107,6 +107,15 @@ export class MoviesService {
       })
   }
 
+  getMovieCredits(id: string) {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/credits?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+
   getUpComingMovies() {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
