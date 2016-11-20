@@ -12,6 +12,7 @@ import { GenresComponent } from './genres/genres.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { PopularSeriesComponent } from './popular-series/popular-series.component';
 import { SerieComponent } from './serie/serie.component';
+import { ActorComponent } from './actor/actor.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SerieComponent } from './serie/serie.component';
     GenresComponent,
     UpcomingComponent,
     PopularSeriesComponent,
-    SerieComponent
+    SerieComponent,
+    ActorComponent
   ],
   imports: [
     BrowserModule,
