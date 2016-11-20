@@ -27,11 +27,11 @@
       <div class="col-md-12">
         <h3 class="text-center">Cast</h3>
       </div>
-      <div class="col-md-2" *ngFor="let actor of cast">
+      <div class="col-md-3" *ngFor="let actor of cast">
         <div class="thumbnail">
           <img src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
           <div class="caption">
-            <h6>{{actor.name}}</h6>
+            <h6 class="text-center">{{actor.name}}</h6>
           </div>
         </div >
       </div>

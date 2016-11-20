@@ -33,7 +33,7 @@ export class MovieComponent implements OnInit {
       });
       this._moviesServices.getMovieCredits(id).subscribe(res => {
         res.cast = res.cast.filter((item) => {return item.profile_path});
-        this.cast = res.cast.slice(0, 6);
+        this.cast = res.cast.slice(0,4);
       });
       this._moviesServices.getMovieVideos(id).subscribe(res => {
         if(res.results && res.results.length) {
