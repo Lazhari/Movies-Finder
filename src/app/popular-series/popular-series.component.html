@@ -1,7 +1,7 @@
 <div *ngIf="series">
   <h3 class="orange-text">Popular Series</h3>
   <div class="row is-flex">
-    <div class="col-sm-3" *ngFor="let serie of series; let i = index;">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let serie of series; let i = index;">
       <div class="thumbnail">
         <img src="https://image.tmdb.org/t/p/w300/{{serie.poster_path}}" *ngIf="serie.poster_path">
         <img src="assets/img/abstract-image.jpg" *ngIf="!serie.poster_path">

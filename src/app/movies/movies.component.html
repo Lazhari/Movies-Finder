@@ -18,7 +18,7 @@
 <div *ngIf="searchRes">
   <h3 class="orange-text">Search Results</h3>
   <div class="row is-flex">
-    <div class="col-sm-3" *ngFor="let movie of searchRes; let i = index;">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of searchRes; let i = index;">
       <movie-card [movie]="movie"></movie-card>
     </div>
   </div>
@@ -26,7 +26,7 @@
 
 <h3 class="orange-text">Top Rated Movies</h3>
 <div class="row is-flex">
-  <div class="col-sm-3" *ngFor="let movie of topRatedList; let i = index;">
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of topRatedList; let i = index;">
     <movie-card [movie]="movie"></movie-card>
   </div>
 </div>
